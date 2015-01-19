@@ -1,0 +1,97 @@
+<!--
+
+  JV jQuery Mobile Menu
+  Author: Julius van der Vaart (http://juliusvaart.com)
+  Version: 1
+
+-->
+
+<head>
+  <title>JV jQuery Mobile Menu Demo</title>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <style>
+    body,html {
+      font-size: 20px;
+      line-height: 25px;
+      background: #aaa;
+      font-family: sans-serif;
+    }
+    article {
+      width: 90%;
+      max-width: 720px;
+      margin: 50px auto;
+    }
+    h3 {
+      margin: 10px 0;
+    }
+    p {
+      margin: 35px 0;
+    }
+    
+  </style>
+</head>
+
+<body>
+  
+  <div class="hamburger">
+  	<div class="hamburger-inner">
+  		<div class="bar bar1 hide"></div>
+  		<div class="bar bar2 cross"></div>
+  		<div class="bar bar3 cross hidden"></div>
+  		<div class="bar bar4 hide"></div>
+  	</div>
+  </div>
+  
+  <div class="page">
+    <div class="main">
+      <article>
+        <h1>JV jQuery Mobile Menu</h1>
+        <p>A simple mobile menu based on jQuery and GSAP JS.</p>
+        <p>
+          <h3>Use body selector.</h3>
+          <code>
+            $('body').jvmobilemenu({<br/>
+              &nbsp;&nbsp;notMenuClick: $('.page'),<br/>
+              &nbsp;&nbsp;slideSpeed: 0.3,<br/>
+              &nbsp;&nbsp;menuWidth: 240<br/>
+            });
+          </code>
+        </p>
+        <p>
+          <b>notMenuClick: $('.page')</b><br/>
+          selector to click outside menu to close<br/>
+        </p>
+        <p>
+          <b>slideSpeed: 0.3</b><br/>
+          speed to open and close menu (default in seconds)<br/>
+        </p>
+        <p>
+          <b>menuWidth: 240</b><br/>
+          width of the mobile menu (default in pixels)<br/>
+        </p>
+      </article>
+    </div>
+  </div>
+  
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <ul>
+        <li>Menu item 1</li>
+        <li>Menu item 2</li>
+        <li>Menu item 3</li>
+        <li>Menu item 4</li>
+        <li>Menu item 5</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/gsap/TweenMax.min.js"></script>
+  
+  <script src="js/jv-jquery-mobile-menu-min.js"></script>
+  
+  <script src="js/script.js"></script>
+  
+</body>
