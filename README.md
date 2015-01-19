@@ -11,11 +11,11 @@ $('body').jvmobilemenu({
 ```
 
 # Settings
-notMenuClick: $('.page')
+notMenuClick: $('.page')<br/>
 selector to click outside menu to close
 
-slideSpeed: 0.3
+slideSpeed: 0.3<br/>
 speed to open and close menu (default in seconds)
 
-menuWidth: 240
+menuWidth: 240<br/>
 width of the mobile menu (default in pixels)
