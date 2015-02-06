@@ -11,12 +11,17 @@
   
   <link rel="stylesheet" type="text/css" href="jvmobilemenu/jv-jquery-mobile-menu.css">
   
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <style>
     body,html {
       font-size: 16px;
       line-height: 25px;
       background: #ccc;
       font-family: sans-serif;
+      -webkit-overflow-scrolling: touch;
     }
     .page {
       box-shadow: 0px 0px 6px #999;
@@ -36,6 +41,9 @@
     code {
       font-size: 12px;
       line-height: 15px;
+      width: 100%;
+      word-break: break-all;
+      word-wrap: break-word;
     }
     td {
       padding: 10px 1% 10px 0;
