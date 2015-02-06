@@ -13,7 +13,7 @@
   
   <style>
     body,html {
-      font-size: 20px;
+      font-size: 16px;
       line-height: 25px;
       background: #ccc;
       font-family: sans-serif;
@@ -28,6 +28,7 @@
     }
     h3 {
       margin: 35px 0 15px;
+      font-size: 18px;
     }
     p {
       margin: 35px 0;
@@ -54,7 +55,7 @@
         <h1>JV jQuery Mobile Menu v2</h1>
         <p>Mobile menu with hamburger button based on jQuery and GSAP JS.</p>
         <p>
-          <h3>Add jQuery and GSAP TweenMax</h3>
+          <h3>Add jQuery, GSAP TweenMax and the plugin just before the closing /body tag</h3>
           <code>
             &lt;script src=&quot;http://code.jquery.com/jquery-1.11.2.min.js&quot;&gt;&lt;/script&gt;<br />
             &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js&quot;&gt;&lt;/script&gt;<br />
@@ -64,7 +65,7 @@
           <code>
             &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jvmobilemenu/jv-jquery-mobile-menu.css&quot;&gt;
           </code>
-          <h3>Call the plugin and edit the settings</h3>
+          <h3>Call the plugin from a JS file and edit the settings</h3>
           <code>
             $.jvmobilemenu({<br />
               &nbsp;&nbsp;mainContent: $('.page'),<br />
