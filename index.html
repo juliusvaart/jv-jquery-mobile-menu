@@ -15,8 +15,11 @@
     body,html {
       font-size: 20px;
       line-height: 25px;
-      background: #aaa;
+      background: #ccc;
       font-family: sans-serif;
+    }
+    .page {
+      box-shadow: 0px 0px 6px #999;
     }
     article {
       width: 90%;
@@ -24,10 +27,20 @@
       margin: 50px auto;
     }
     h3 {
-      margin: 10px 0;
+      margin: 35px 0 15px;
     }
     p {
       margin: 35px 0;
+    }
+    code {
+      font-size: 12px;
+      line-height: 15px;
+    }
+    td {
+      padding: 10px 1% 10px 0;
+    }
+    td.col1 {
+      width: 160px;
     }
     
   </style>
@@ -38,41 +51,63 @@
   <div class="page">
     <div class="main">
       <article>
-        <h1>JV jQuery Mobile Menu</h1>
-        <p>A simple mobile menu based on jQuery and GSAP JS.</p>
+        <h1>JV jQuery Mobile Menu v2</h1>
+        <p>Mobile menu with hamburger button based on jQuery and GSAP JS.</p>
         <p>
-          <h3>Use body selector.</h3>
+          <h3>Add jQuery and GSAP TweenMax</h3>
           <code>
-            $('body').jvmobilemenu({<br/>
-              &nbsp;&nbsp;notMenuClick: $('.page'),<br/>
+            &lt;script src=&quot;http://code.jquery.com/jquery-1.11.2.min.js&quot;&gt;&lt;/script&gt;<br />
+            &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js&quot;&gt;&lt;/script&gt;
+          </code>
+          <h3>Call the plugin and edit the settings</h3>
+          <code>
+            $.jvmobilemenu({<br/>
+              &nbsp;&nbsp;mainContent: $('.page'),<br/>
+              &nbsp;&nbsp;theMenu: $('.mobile-nav'),<br/>
               &nbsp;&nbsp;slideSpeed: 0.3,<br/>
-              &nbsp;&nbsp;menuWidth: 240<br/>
+              &nbsp;&nbsp;menuWidth: 240,<br/>
+              &nbsp;&nbsp;position: 'right',<br/>
+              &nbsp;&nbsp;menuPadding: '20px 20px 60px'<br/>
             });
           </code>
         </p>
-        <p>
-          <b>notMenuClick: $('.page')</b><br/>
-          selector to click outside menu to close<br/>
-        </p>
-        <p>
-          <b>slideSpeed: 0.3</b><br/>
-          speed to open and close menu (default in seconds)<br/>
-        </p>
-        <p>
-          <b>menuWidth: 240</b><br/>
-          width of the mobile menu (default in pixels). Don't forget to change the mobile-menu width in CSS to the same value.<br/>
-        </p>
+        <h3>The settings</h3>
+        <table>
+          <tr>
+            <td class="col1">mainContent</td>
+            <td class="col2">The Content Wrapper jQuery selector<br /><small>default: <strong>$('.page')</strong></small></td>
+          </tr>
+          <tr>
+            <td class="col1">theMenu</td>
+            <td class="col2">Your mobile menu<br /><small>default: <strong>$('.mobile-nav')</strong></small></td>
+          </tr>
+          <tr>
+            <td class="col1">slideSpeed</td>
+            <td class="col2">Animation speed<br /><small>default: <strong>0.3</strong> (seconds)</small></td>
+          </tr>
+          <tr>
+            <td class="col1">menuWidth</td>
+            <td class="col2">Desired menu width<br /><small>default: <strong>240</strong></small></td>
+          </tr>
+          <tr>
+            <td class="col1">position</td>
+            <td class="col2">Left or right side for hamburger and menu<br /><small>default: <strong>'right'</strong></small></td>
+          </tr>
+          <tr>
+            <td class="col1">menuPadding</td>
+            <td class="col2">Padding for the menu content<br /><small>default: <strong>'20px 20px 60px'</strong></small></td>
+          </tr>
+        </table>
       </article>
     </div>
   </div>
   
   <div class="mobile-nav">
     <ul>
-      <li>Menu item 1</li>
-      <li>Menu item 2</li>
-      <li>Menu item 3</li>
-      <li>Menu item 4</li>
-      <li>Menu item 5</li>
+      <li><a href="#">Frontpage</a></li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">Route</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </div>
   

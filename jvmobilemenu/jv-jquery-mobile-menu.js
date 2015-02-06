@@ -30,8 +30,8 @@
       width: settings.menuWidth, 
       position: 'fixed',
       top: 0,
-      'overflow-y': 'scroll',
-      '-webkit-overflow-scrolling': 'touch'
+      opacity: 0,
+      height: '100%'
     }).addClass('mobile-menu').wrapInner('<div class="mobile-menu-inner"></div>');
     
     $('.mobile-menu-inner').css({
@@ -59,7 +59,7 @@
           right: 'auto'
         });
       settings.theMenu.css({
-        top: '40px'
+        paddingTop: '40px'
       });
     } else if (settings.position == 'right') {
       theMarginLeft = -settings.menuWidth, 
@@ -73,14 +73,24 @@
   
   	// menuClose function
   	function menuClose() {
+  		
+  		// Hamburger
   		hamburger.removeClass('open');
   		TweenMax.to(crosses, settings.slideSpeed / 2, {rotation:0, ease:Power3.easeOut});
+  		
   		// Move content back to hide menu
   		TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: 0, marginRight: 0});
+  		
   		// FadeOut content (safari bounce fix)
   		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 0});
+  		
   		// Disable scrolling plus fix menu-scrolling
-  		settings.theMenu.css({'-webkit-overflow-scrolling': 'inherit', 'overflow-y': 'hidden'});
+  		// From http://stackoverflow.com/a/14244680
+  		settings.theMenu.css({
+    		'overflow-y': 'hidden',
+    		'-webkit-overflow-scrolling': 'inherit',
+    		'overflow-scrolling': 'inherit'
+      });
   		$(document).off('touchmove');
   		$('body').css({overflow: 'inherit'});
   	}
@@ -88,16 +98,20 @@
   
   	// menuOpen function
   	function menuOpen() {
+    	
+    	// Hamburger
   		hamburger.addClass('open');
   		TweenMax.to(crossLeft, settings.slideSpeed / 2, {rotation:45, ease:Power3.easeOut});
   		TweenMax.to(crossRight, settings.slideSpeed / 2, {rotation:-45, ease:Power3.easeOut});
+
   		// Move content to show menu
-  		
       TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: theMarginLeft, marginRight: theMarginRight});
   		
   		// FadeIn content (safari bounce fix)
   		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 1});
+  		
   		// Disable scrolling on page except header
+  		// From http://stackoverflow.com/a/14244680
   		var setScrollable = '.mobile-menu',
   		bodySelect = $('body');
   
@@ -116,7 +130,11 @@
   		bodySelect.on('touchmove', setScrollable, function(e) {
   		  e.stopPropagation();
   		});
-  		settings.theMenu.css({'-webkit-overflow-scrolling': 'touch', 'overflow-y': 'auto'});
+  		settings.theMenu.css({
+    		'overflow-y': 'scroll',
+    		'overflow-scrolling': 'touch',
+    		'-webkit-overflow-scrolling': 'touch'
+      });
   	}
   
   
@@ -145,6 +163,13 @@
   		}
   	});
   
+  };
+  
+  // If no element is supplied, we'll attach to body
+  // Borrowed from https://github.com/srobbin/jquery-backstretch
+  $.jvmobilemenu = function (options) {
+    // Return the instance
+    return $('body').jvmobilemenu(options);
   };
 
 })(jQuery);
