@@ -1,21 +1,39 @@
-# Julius Vaart Mobile Menu
-A simple mobile menu based on jQuery and GSAP JS.
+#JV jQuery Mobile Menu v2
+Mobile menu with hamburger button based on jQuery and GSAP JS.
 
-# Use body selector.
+#Add jQuery and GSAP TweenMax
 ```
-$('body').jvmobilemenu({
-  notMenuClick: $('.page'),
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+```
+
+#Call the plugin and edit the settings
+```
+$.jvmobilemenu({
+  mainContent: $('.page'),
+  theMenu: $('.mobile-nav'),
   slideSpeed: 0.3,
-  menuWidth: 240
+  menuWidth: 240,
+  position: 'right',
+  menuPadding: '20px 20px 60px'
 });
 ```
 
-# Settings
-notMenuClick: $('.page')<br/>
-selector to click outside menu to close
+# The settings
+mainContent	(The Content Wrapper jQuery selector)<br/>
+default: $('.page')
 
-slideSpeed: 0.3<br/>
-speed to open and close menu (default in seconds)
+theMenu	(Your mobile menu)<br/>
+default: $('.mobile-nav')
 
-menuWidth: 240<br/>
-width of the mobile menu (default in pixels). Don't forget to change the mobile-menu width in CSS to the same value.
+slideSpeed (Animation speed)<br/>
+default: 0.3 (seconds)
+
+menuWidth	(Desired menu width)<br/>
+default: 240
+
+position (Left or right side for hamburger and menu)<br/>
+default: 'right'
+
+menuPadding	(Padding for the menu content)<br/>
+default: '20px 20px 60px'
