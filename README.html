@@ -2,7 +2,7 @@
 
 <p>Mobile menu with hamburger button based on jQuery and GSAP JS.</p>
 
-<h1>Add jQuery and GSAP TweenMax</h1>
+<h1>Add jQuery, GSAP TweenMax and the plugin just before the closing /body tag</h1>
 
 <p>```</p>
 
@@ -12,9 +12,18 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
 
+<script src="jvmobilemenu/jv-jquery-mobile-menu-min.js"></script>
+
+
 <p>```</p>
 
-<h1>Call the plugin and edit the settings</h1>
+<h1>Add the CSS in the head</h1>
+
+<p><code>
+&lt;link rel="stylesheet" type="text/css" href="jvmobilemenu/jv-jquery-mobile-menu.css"&gt;
+</code></p>
+
+<h1>Call the plugin from a JS file and edit the settings</h1>
 
 <p><code>
 $.jvmobilemenu({

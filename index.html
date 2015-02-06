@@ -9,7 +9,7 @@
 <head>
   <title>JV jQuery Mobile Menu Demo</title>
   
-  <link rel="stylesheet" type="text/css" href="jvmobilemenu/style.css">
+  <link rel="stylesheet" type="text/css" href="jvmobilemenu/jv-jquery-mobile-menu.css">
   
   <style>
     body,html {
@@ -57,17 +57,22 @@
           <h3>Add jQuery and GSAP TweenMax</h3>
           <code>
             &lt;script src=&quot;http://code.jquery.com/jquery-1.11.2.min.js&quot;&gt;&lt;/script&gt;<br />
-            &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js&quot;&gt;&lt;/script&gt;
+            &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js&quot;&gt;&lt;/script&gt;<br />
+            &lt;script src=&quot;jvmobilemenu/jv-jquery-mobile-menu-min.js&quot;&gt;&lt;/script&gt;
+          </code>
+          <h3>Add the CSS in the head</h3>
+          <code>
+            &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jvmobilemenu/jv-jquery-mobile-menu.css&quot;&gt;
           </code>
           <h3>Call the plugin and edit the settings</h3>
           <code>
-            $.jvmobilemenu({<br/>
-              &nbsp;&nbsp;mainContent: $('.page'),<br/>
-              &nbsp;&nbsp;theMenu: $('.mobile-nav'),<br/>
-              &nbsp;&nbsp;slideSpeed: 0.3,<br/>
-              &nbsp;&nbsp;menuWidth: 240,<br/>
-              &nbsp;&nbsp;position: 'right',<br/>
-              &nbsp;&nbsp;menuPadding: '20px 20px 60px'<br/>
+            $.jvmobilemenu({<br />
+              &nbsp;&nbsp;mainContent: $('.page'),<br />
+              &nbsp;&nbsp;theMenu: $('.mobile-nav'),<br />
+              &nbsp;&nbsp;slideSpeed: 0.3,<br />
+              &nbsp;&nbsp;menuWidth: 240,<br />
+              &nbsp;&nbsp;position: 'right',<br />
+              &nbsp;&nbsp;menuPadding: '20px 20px 60px'<br />
             });
           </code>
         </p>
@@ -114,7 +119,7 @@
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
   
-  <script src="jvmobilemenu/jv-jquery-mobile-menu.js"></script>
+  <script src="jvmobilemenu/jv-jquery-mobile-menu-min.js"></script>
   
   <script src="js/script.js"></script>
   
