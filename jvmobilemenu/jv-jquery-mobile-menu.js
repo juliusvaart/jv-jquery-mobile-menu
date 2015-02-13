@@ -17,6 +17,7 @@
       slideSpeed: 0.3,
       menuWidth: 240,
       position: 'right',
+      push: true,
       menuPadding: '20px 20px 60px'
     }, options );
     
@@ -50,7 +51,7 @@
     
     
     // Mobile menu & hamburger position left or right
-    if (settings.position == 'left') {
+    if (settings.position === 'left') {
       theMarginLeft = settings.menuWidth, 
       theMarginRight = -settings.menuWidth;
       settings.theMenu.add(hamburger)
@@ -61,7 +62,7 @@
       settings.theMenu.css({
         paddingTop: '40px'
       });
-    } else if (settings.position == 'right') {
+    } else if (settings.position === 'right') {
       theMarginLeft = -settings.menuWidth, 
       theMarginRight = settings.menuWidth;
       settings.theMenu.add(hamburger).css({
@@ -157,8 +158,8 @@
   
   
   	// Close main-menu on click outside menu
-  	settings.mainContent.on('click', function() {
-  		if (hamburger.hasClass('open')) {
+  	$('body').not(settings.theMenu).on('click', function() {
+    	if (hamburger.hasClass('open')) {
   			menuClose();
   		}
   	});
