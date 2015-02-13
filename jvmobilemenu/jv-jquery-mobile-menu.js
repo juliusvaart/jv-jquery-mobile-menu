@@ -2,7 +2,7 @@
 
   JV jQuery Mobile Menu
   Author: Julius van der Vaart (http://juliusvaart.com)
-  Version: 2
+  Version: 2.2
 
 */
 
@@ -10,7 +10,7 @@
   
   $.fn.jvmobilemenu = function (options) {
   
-    var settings = $.extend({
+    settings = $.extend({
       // Default settings
       mainContent: $('.page'),
       theMenu: $('.mobile-nav'),
@@ -44,7 +44,8 @@
     
     // Hamburger & Mobile Menu vars
     var hamburger = $('.hamburger'),
-  	//mainContent = $(this),
+    hamburgerMarginLeft = parseInt(hamburger.css('margin-left')),
+    hamburgerLeftPushPosition = hamburger.outerWidth(true) - hamburgerMarginLeft,
   	crosses = $('.bar2,.bar3'),
   	crossLeft = $('.bar2'),
   	crossRight = $('.bar3');
@@ -52,19 +53,14 @@
     
     // Mobile menu & hamburger position left or right
     if (settings.position === 'left') {
-      theMarginLeft = settings.menuWidth, 
-      theMarginRight = -settings.menuWidth;
+      theMarginLeft = settings.menuWidth;
       settings.theMenu.add(hamburger)
         .css({
           left: 0, 
           right: 'auto'
         });
-      settings.theMenu.css({
-        paddingTop: '40px'
-      });
     } else if (settings.position === 'right') {
-      theMarginLeft = -settings.menuWidth, 
-      theMarginRight = settings.menuWidth;
+      theMarginLeft = -settings.menuWidth;
       settings.theMenu.add(hamburger).css({
         left: 'auto', 
         right: 0
@@ -77,10 +73,16 @@
   		
   		// Hamburger
   		hamburger.removeClass('open');
-  		TweenMax.to(crosses, settings.slideSpeed / 2, {rotation:0, ease:Power3.easeOut});
+  		
+  		//Cross
+      TweenMax.to(crosses, settings.slideSpeed / 2, {rotation:0, ease:Power3.easeOut});
   		
   		// Move content back to hide menu
-  		TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: 0, marginRight: 0});
+  		TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: 0});
+  		
+  		if (settings.position === 'left') {
+        TweenMax.to(hamburger, settings.slideSpeed, {marginLeft: hamburgerMarginLeft});
+      }
   		
   		// FadeOut content (safari bounce fix)
   		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 0});
@@ -99,14 +101,20 @@
   
   	// menuOpen function
   	function menuOpen() {
-    	
+
     	// Hamburger
   		hamburger.addClass('open');
+  		
+  		// Cross
   		TweenMax.to(crossLeft, settings.slideSpeed / 2, {rotation:45, ease:Power3.easeOut});
   		TweenMax.to(crossRight, settings.slideSpeed / 2, {rotation:-45, ease:Power3.easeOut});
-
+      
   		// Move content to show menu
-      TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: theMarginLeft, marginRight: theMarginRight});
+      TweenMax.to(settings.mainContent, settings.slideSpeed, {marginLeft: theMarginLeft});
+      
+      if (settings.position === 'left') {
+        TweenMax.to(hamburger, settings.slideSpeed, {marginLeft: theMarginLeft - hamburgerLeftPushPosition});
+      }
   		
   		// FadeIn content (safari bounce fix)
   		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 1});
@@ -143,7 +151,7 @@
   	$(window).resize(function() {
   		menuClose();
   	});
-  
+  	
   
   	// Hamburger click
   	hamburger.on('click', function(e) {
@@ -158,7 +166,7 @@
   
   
   	// Close main-menu on click outside menu
-  	$('body').not(settings.theMenu).on('click', function() {
+  	settings.mainContent.on('click', function() {
     	if (hamburger.hasClass('open')) {
   			menuClose();
   		}

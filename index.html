@@ -51,6 +51,13 @@
     td.col1 {
       width: 160px;
     }
+    .left {
+      color: blue;
+    }
+    .left:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
     
   </style>
 </head>
@@ -61,7 +68,8 @@
     <div class="main">
       <article>
         <h1>JV jQuery Mobile Menu v2</h1>
-        <p>Mobile menu with hamburger button based on jQuery and GSAP JS.</p>
+        <p>Mobile menu with hamburger button based on jQuery and GSAP JS.<br />
+        <span class="left">Click here to place the menu on the right side</span></p>
         <p>
           <h3>Add jQuery, GSAP TweenMax and the plugin just before the closing /body tag</h3>
           <code>
@@ -117,6 +125,15 @@
   </div>
   
   <div class="mobile-nav">
+    <ul>
+      <li><a href="#">Frontpage</a></li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">Route</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  
+  <div class="mobile-nav-2">
     <ul>
       <li><a href="#">Frontpage</a></li>
       <li><a href="#">About us</a></li>

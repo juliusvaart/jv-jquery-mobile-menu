@@ -5,7 +5,7 @@
     theMenu: $('.mobile-nav'),
     slideSpeed: 0.3,
     menuWidth: 240,
-    position: 'right',
+    position: 'left',
     menuPadding: '20px 20px 60px'
   });
   
