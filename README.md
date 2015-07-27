@@ -1,6 +1,6 @@
 #JV jQuery Mobile Menu v2
 Mobile menu with hamburger button based on jQuery and GSAP JS.<br/>
-[View demo](http://juliusvaart.com/jvmobilemenu/)
+[View demo](http://archive.juliusvaart.com/jvmobilemenu/)
 
 ##Add jQuery, GSAP TweenMax and the plugin just before the closing /body tag
 ```HTML
