@@ -31,6 +31,7 @@
       width: settings.menuWidth, 
       position: 'fixed',
       top: 0,
+      display: 'none',
       height: '100%'
     }).addClass('mobile-menu').wrapInner('<div class="mobile-menu-inner"></div>');
     
