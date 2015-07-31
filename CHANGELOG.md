@@ -1,5 +1,8 @@
 #Changelog
 
+##v2.3
+Changed hamburger appearance and a little better performance
+
 ##v2.2
 Better handling of hamburger cross on left side
 

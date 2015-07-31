@@ -50,15 +50,14 @@ body {
   .hamburger-inner {
     position: relative;
     height: 21px;
-    width: 25px;
+    width: 30px;
     display: block;
-    overflow: hidden;
     margin: 0;
     padding: 0;
   }
   .bar {
-    width: 25px;
-    height: 3px;
+    width: 30px;
+    height: 2px;
     background: #000;
     position: absolute;
     top: 0;
@@ -77,7 +76,7 @@ body {
     }
     .bar2,
     .bar3 {
-      height: 4px;
+      height: 3px;
     }
   }
 }

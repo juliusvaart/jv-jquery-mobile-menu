@@ -2,7 +2,7 @@
 
   JV jQuery Mobile Menu
   Author: Julius van der Vaart (http://juliusvaart.com)
-  Version: 2.2
+  Version: 2.3
 
 */
 
@@ -31,7 +31,6 @@
       width: settings.menuWidth, 
       position: 'fixed',
       top: 0,
-      opacity: 0,
       height: '100%'
     }).addClass('mobile-menu').wrapInner('<div class="mobile-menu-inner"></div>');
     
@@ -61,10 +60,11 @@
         });
     } else if (settings.position === 'right') {
       theMarginLeft = -settings.menuWidth;
-      settings.theMenu.add(hamburger).css({
-        left: 'auto', 
-        right: 0
-      });
+      settings.theMenu.add(hamburger)
+        .css({
+          left: 'auto', 
+          right: 0
+        });
     }
   
   
@@ -84,8 +84,10 @@
         TweenMax.to(hamburger, settings.slideSpeed, {marginLeft: hamburgerMarginLeft});
       }
   		
-  		// FadeOut content (safari bounce fix)
-  		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 0});
+  		// Hide content (safari bounce fix)
+  		setTimeout( function(){ 
+        settings.theMenu.css({display: 'none'}); 
+      }, 200);
   		
   		// Disable scrolling plus fix menu-scrolling
   		// From http://stackoverflow.com/a/14244680
@@ -116,8 +118,8 @@
         TweenMax.to(hamburger, settings.slideSpeed, {marginLeft: theMarginLeft - hamburgerLeftPushPosition});
       }
   		
-  		// FadeIn content (safari bounce fix)
-  		TweenMax.to(settings.theMenu, settings.slideSpeed, {opacity: 1});
+  		// Show content (safari bounce fix)
+  		settings.theMenu.css({display: 'block'});
   		
   		// Disable scrolling on page except header
   		// From http://stackoverflow.com/a/14244680
