@@ -42,6 +42,15 @@
     });
     
     
+    // Fix height
+    function mainContentHeightFix() {
+      settings.mainContent.css({
+        minHeight: $(window).height()
+      });
+    }
+    mainContentHeightFix();
+    
+    
     // Hamburger & Mobile Menu vars
     var hamburger = $('.hamburger'),
     hamburgerMarginLeft = parseInt(hamburger.css('margin-left')),
@@ -150,9 +159,10 @@
   	}
   
   
-  	// Close menu on window-resize
+  	// Stuff on Window-resize
   	$(window).resize(function() {
   		menuClose();
+  		mainContentHeightFix();
   	});
   	
   
